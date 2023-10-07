@@ -44,6 +44,24 @@ setsController.refineSets = (req, res, next) => {
       message: { err: "Error getting sets" },
     });
   }
+
+  // method for getting a single set based on id
+  setsController.getSingleSet = async (req, res, next) => {
+    try {
+      // query database for set with matching id and save to res.locals
+      const { id } = req.params;
+      const set = await Set.findOne({ _id: id });
+      res.locals.set = set;
+      return next();
+    } catch (err) {
+      // pass error through to global error handler
+      return next({
+        log: `setsController.getSingleSet ERROR: ${err}`,
+        status: 500,
+        message: { err: "Error getting a specified set" },
+      });
+    }
+  };
 };
 
 module.exports = setsController;
