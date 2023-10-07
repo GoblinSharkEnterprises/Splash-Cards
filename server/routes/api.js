@@ -3,13 +3,19 @@ const express = require("express");
 const router = express.Router();
 // require in controllers
 const setsController = require("../controllers/setsController");
+const cardsController = require("../controllers/cardsController");
 
 // define routes
 
 // route for getting a single set and returning all set/card information
-router.get("/sets/set:id", setsController.getSingleSet, (req, res) => {
-  return res.status(200).json(res.locals.set);
-});
+router.get(
+  "/sets/set:id",
+  setsController.getSingleSet,
+  cardsController.getCardsInfo,
+  (req, res) => {
+    return res.status(200).json(res.locals.setInfo);
+  }
+);
 
 // route for getting refined information about sets for main display
 router.get(
@@ -17,7 +23,7 @@ router.get(
   setsController.getSets,
   setsController.refineSets,
   (req, res) => {
-    return res.status(200).json(res.locals.refineSets);
+    return res.status(200).json(res.locals.refinedSets);
   }
 );
 
