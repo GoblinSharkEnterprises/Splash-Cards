@@ -1,9 +1,9 @@
-const path = require("path");
-const express = require("express");
-const dotenv = require("dotenv");
+const path = require('path');
+const express = require('express');
+const dotenv = require('dotenv');
 dotenv.config();
 // require routers
-const apiRouter = require("./routes/api");
+const apiRouter = require('./routes/api');
 
 const app = express();
 
@@ -12,31 +12,31 @@ app.use(express.json());
 
 // route handlers
 // direct requests to /api to apiRouter
-app.use("/api", apiRouter);
+app.use('/api', apiRouter);
 
 // if in production mode
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === 'production') {
   //production mode
-  console.log("//////// NODE_ENV", process.env.NODE_ENV);
+  console.log('//////// NODE_ENV', process.env.NODE_ENV);
   // handle requests for static files
-  app.use("/build", express.static(path.resolve(__dirname, "../build")));
+  app.use('/build', express.static(path.resolve(__dirname, '../build')));
 
   // route handler to respond with main app
-  app.get("/", (req, res) => {
-    return res.status(200).sendFile(path.resolve(__dirname, "../index.html"));
+  app.get('/', (req, res) => {
+    return res.status(200).sendFile(path.resolve(__dirname, '../index.html'));
   });
 } else {
   //development mode
-  app.get("/", (req, res) => {
-    return res.status(200).sendFile(path.resolve(__dirname, "../index.html"));
+  app.get('/*', (req, res) => {
+    return res.status(200).sendFile(path.resolve(__dirname, '../index.html'));
   });
 }
 // Global error handler
 app.use((err, req, res, next) => {
   const defaultErr = {
-    log: "Express error handler caught unknown middleware error",
+    log: 'Express error handler caught unknown middleware error',
     status: 500,
-    message: { err: "An error occurred" },
+    message: { err: 'An error occurred' },
   };
   const errorObj = Object.assign({}, defaultErr, err);
   console.log(errorObj.log);

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CardContainer from '../containers/CardContainer.js';
+import Navbar from '../components/Navbar.js';
 
 const CreateSet = () => {
   // need to use state to track form inputs
@@ -27,8 +28,7 @@ const CreateSet = () => {
       cardList: cardList,
     });
     //do a fetch request with post method to the server passing in the body for post
-    const response = await fetch('api/sets', {
-      //do /api/sets or api/sets?
+    const response = await fetch('/api/sets', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -40,17 +40,19 @@ const CreateSet = () => {
   return (
     <div id='main'>
       <Navbar />
+      <h1>Create a New Set</h1>
       <input
         id='set-name'
         type='text'
         onChange={(e) => setSetName(e.target.value)}
         placeholder='New Set Name'
       />
-      <form id='add-card' onClick={addCard}>
+      <form id='add-card' onSubmit={addCard}>
         <input type='text' placeholder='front' />
         <input type='text' placeholder='back' />
-        <input type='submit' value='Add Card' /> {/* Submit button for form */}
+        <input type='submit' value='Add Card' className='submit'/> {/* Submit button for form */}
       </form>
+      <hr />
       <CardContainer cardList={cardList} />
       {/* on click, sends post request with all of state information */}
       <button onClick={submitSet}>Create Set</button>
