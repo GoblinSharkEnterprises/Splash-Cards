@@ -1,3 +1,4 @@
+/* Styling for the overall page body */
 body {
   display: flex;
   flex-direction: column;
@@ -6,17 +7,32 @@ body {
   font-family: 'AR One Sans', sans-serif;
 }
 
+/* Styling for the navigation bar */
 nav {
   background-color: rgb(192, 242, 241);
   display: flex;
   justify-content: space-around;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px rgb(168, 168, 168);
+  padding: 10px;
+  /* Styling for list items within the navigation bar */
   li {
     padding-right: 10px;
     list-style-type: none;
+  }
+  /* Styling for list items when hovered */
+
+  a {
     text-decoration: none;
+    color: rgb(30, 29, 29); /* Set your desired link text color */
+  }
+  a:hover {
+    color: rgb(136, 136, 136);
   }
 }
 
+/* Styling for the main content section */
 #main {
   display: flex;
   flex-direction: column;
@@ -24,48 +40,94 @@ nav {
   gap: 20px;
 }
 
-hr {
-  border-bottom: 1px solid #888;
-}
-
+/* Styling for buttons */
 button {
-  padding: 5px 10px;
+  padding: 5px 5px;
   border-radius: 5px;
-  transition: 1s;
+  transition: 0.3s;
 }
+/* Styling for buttons when hovered */
 button:hover {
-  background-color: rgb(179, 178, 178);
+  background-color: rgb(117, 117, 117);
+  color: white;
 }
 
+/* Styling for the "add-card" section */
 #add-card {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  background-color: lightblue;
+  justify-content: space-around;
+  padding: 20px;
+  gap: 10px;
+  /* Styling for submit buttons within the "add-card" section */
   .submit {
     padding: 5px 10px;
     border-radius: 5px;
+    transition: 0.3s;
+  }
+  /* Styling for submit buttons within the "add-card" section when hovered */
+  .submit:hover {
+    background-color: rgb(117, 117, 117);
+    color: white;
+  }
+  /* Styling for input fields within the "add-card" section */
+  input {
+    padding: 20px;
+    font-size: 16px;
   }
 }
 
-.set {
-  background-color: lightblue;
-}
-
-.card-container {
-    display: grid;
-    grid-template: auto / repeat(auto-fill, 280px);
-    grid-gap: 10px;
-    justify-content: center;
-}
-.card {
+/* Styling for the "add-set" section */
+#add-set {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  background-color: lightblue;
+  border: 2px solid rgb(0, 0, 0);
+  box-shadow: 3px 3px 3px rgb(168, 168, 168);
+  padding: 10px;
+  gap: 20px;
+}
+
+/* Styling for the container of sets */
+.set-container {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  background-color: #888;
-  border: 2px solid rgb(98, 129, 160);
+  gap: 10px;
+}
+
+/* Styling for individual sets */
+.set {
+  background-color: #fed28f;
+  border: 2px solid rgb(0, 0, 0);
   box-shadow: 3px 3px 3px rgb(168, 168, 168);
   border-radius: 20px;
   padding: 40px;
+  max-width: 100px;
   margin: 5px;
+}
+
+/* Styling for the container of cards */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
+/* Styling for individual cards */
+.card {
+  width: 200px;
+  height: max-content;
+  background-color: #fff8ed;
+  border: 2px solid rgb(0, 0, 0);
+  box-shadow: 3px 3px 3px rgb(168, 168, 168);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 5px;
+  overflow-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

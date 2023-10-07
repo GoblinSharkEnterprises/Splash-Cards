@@ -41,18 +41,20 @@ const CreateSet = () => {
     <div id='main'>
       <Navbar />
       <h1>Create a New Set</h1>
-      <input
-        id='set-name'
-        type='text'
-        onChange={(e) => setSetName(e.target.value)}
-        placeholder='New Set Name'
-      />
-      <form id='add-card' onSubmit={addCard}>
-        <input type='text' placeholder='front' />
-        <input type='text' placeholder='back' />
-        <input type='submit' value='Add Card' className='submit'/> {/* Submit button for form */}
-      </form>
-      <hr />
+      <div id='add-set'>
+        <input
+          id='set-name'
+          type='text'
+          onChange={(e) => setSetName(e.target.value)}
+          placeholder='New Set Name'
+        />
+        <form id='add-card' onSubmit={addCard}>
+          <input type='text' placeholder='front' />
+          <textarea id='back' type='text' placeholder='back' rows='5' cols='20' />
+          <input type='submit' value='Add Card' className='submit' />{' '}
+          {/* Submit button for form */}
+        </form>
+      </div>
       <CardContainer cardList={cardList} />
       {/* on click, sends post request with all of state information */}
       <button onClick={submitSet}>Create Set</button>

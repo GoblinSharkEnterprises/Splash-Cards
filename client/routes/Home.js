@@ -8,7 +8,6 @@ const Home = () => {
     <div id='main'>
       <Navbar />
       <h1>Not Quizlet</h1>
-      <h3>About Us</h3>
       <p>We're a flashcard app that is totally not Quizlet</p>
       {/* link this button to /sets */}
       <Link to='/sets'>
