@@ -7,6 +7,7 @@ import styles from "./scss/app.scss";
 const container = document.querySelector("#app");
 const root = createRoot(container);
 root.render(
+  //wrapping browser router for app to start using react router
   <BrowserRouter>
     <App />
   </BrowserRouter>
