@@ -62,6 +62,26 @@ setsController.refineSets = (req, res, next) => {
       });
     }
   };
+
+  // method for creating a new set
+  setsController.addSet = async (req, res, next) => {
+    try {
+      await Set.create({
+        name: req.body.setName,
+        public: true,
+        totalCards: res.locals.createdCards.length,
+        cards: res.locals.createdCards,
+      });
+      return next();
+    } catch (err) {
+      // pass error through to global error handler
+      return next({
+        log: `setsController.addSet ERROR: ${err}`,
+        status: 500,
+        message: { err: "Error adding a set" },
+      });
+    }
+  };
 };
 
 module.exports = setsController;

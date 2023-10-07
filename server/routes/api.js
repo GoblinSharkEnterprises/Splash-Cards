@@ -21,5 +21,15 @@ router.get(
   }
 );
 
+// route for creating a new set
+router.post(
+  "/sets",
+  cardsController.addCards,
+  setsController.addSet,
+  (req, res) => {
+    res.status(200).json({});
+  }
+);
+
 // export router
 module.exports = router;
