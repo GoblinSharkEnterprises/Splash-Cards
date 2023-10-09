@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar.js';
 
 const CreateSet = ({ currentUser }) => {
   // need to use state to track form inputs
-  const [setName, setSetName] = useState(''); //Set Name
+  const [setName, setSetName] = useState('Untitled'); //Set Name
   const [cardList, setCardList] = useState([]); // List of Cards
   const [submitted, setSubmitted] = useState(false); //if form submitted
 
@@ -62,11 +62,17 @@ const CreateSet = ({ currentUser }) => {
             placeholder='New Set Name'
           />
           <form id='add-card' onSubmit={addCard}>
-            <input type='text' placeholder='front' />
             <textarea
               id='back'
               type='text'
-              placeholder='back'
+              placeholder='Front'
+              rows='5'
+              cols='20'
+            />
+            <textarea
+              id='back'
+              type='text'
+              placeholder='Back'
               rows='5'
               cols='20'
             />

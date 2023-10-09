@@ -32,6 +32,7 @@ const SignUp = ({ currentUser, setCurrentUser }) => {
     return (
       <div id='main'>
         <Navbar currentUser={currentUser} />
+        <h1>Sign Up</h1>
         <div id='signup'>
           <form onSubmit={handleSignUp}>
             <input name='username' type='text' placeholder='Username'></input>
