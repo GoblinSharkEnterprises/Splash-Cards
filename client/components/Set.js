@@ -10,9 +10,6 @@ const Set = ({ name, totalCards, id }) => {
       <Link to={`/sets/set/${id}`}>
         <button>View This Set</button>
       </Link>
-      <Link to={`/testSet/${id}`}>
-        <button>Test This Set</button>
-      </Link>
     </div>
   );
 };
