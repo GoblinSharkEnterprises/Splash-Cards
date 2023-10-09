@@ -8,18 +8,20 @@ const CreateSet = ({ currentUser }) => {
   const [setName, setSetName] = useState('Untitled'); //Set Name
   const [cardList, setCardList] = useState([]); // List of Cards
   const [submitted, setSubmitted] = useState(false); //if form submitted
-
+  const [frontInput, setFrontInput] = useState('');
+  const [backInput, setBackInput] = useState('');
   //Create add card to state's cardList
   const addCard = (e) => {
     //prevent page from refreshing
     e.preventDefault();
     const form = e.target;
-    const newCard = { front: form[0].value, back: form[1].value };
+    const newCard = { front: frontInput, back: backInput };
     //avoid mutating state directly with slice
-    const newCardList = cardList.slice();
-    newCardList.push(newCard);
+    const newCardList = [...cardList, newCard];
     setCardList(newCardList);
     //cardlist state to pass to card container
+    setFrontInput('');
+    setBackInput('');
   };
 
   //submit post request to /api/sets to send set name and card list to server
@@ -63,11 +65,13 @@ const CreateSet = ({ currentUser }) => {
           />
           <form id='add-card' onSubmit={addCard}>
             <textarea
-              id='back'
+              id='front'
               type='text'
               placeholder='Front'
               rows='5'
               cols='20'
+              value={frontInput}
+              onChange={(e) => setFrontInput(e.target.value)}
             />
             <textarea
               id='back'
@@ -75,9 +79,10 @@ const CreateSet = ({ currentUser }) => {
               placeholder='Back'
               rows='5'
               cols='20'
+              value={backInput}
+              onChange={(e) => setBackInput(e.target.value)}
             />
-            <input type='submit' value='Add Card' className='submit' />{' '}
-            {/* Submit button for form */}
+            <input type='submit' value='Add Card' className='submit' />
           </form>
         </div>
         <CardContainer cardList={cardList} />
