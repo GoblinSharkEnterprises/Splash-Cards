@@ -17,7 +17,7 @@ const TestingCard = ({ testingCard, cardDisplay, setCardDisplay }) => {
       setCardDisplay('front');
     }
   };
-
+  
   return (
     <div className='testing-card' onClick={flipCard}>
       <p>{display}</p>

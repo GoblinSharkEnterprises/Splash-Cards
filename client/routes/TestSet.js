@@ -46,7 +46,7 @@ const TestSet = (props) => {
 
   return (
     <div id='testSet'>
-      <Navbar />
+      <Navbar currentUser={props.currentUser}/>
       <h1>Testing Set</h1>
       <p>Current Card: {cardIdx + 1}</p>
       <TestingCard
@@ -60,7 +60,7 @@ const TestSet = (props) => {
         Back
         </button>
         <button onClick={cardIndexChanger} value='next'>
-          Next Card
+          Next
         </button>
         
       </div>
