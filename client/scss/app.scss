@@ -1,0 +1,239 @@
+//colors
+$lightest: #f4f6fa;
+$light: #d1d6ec;
+$medium: #8c9ace;
+$dark: #5e63b2;
+$darkest: #4f4e92;
+$text-color: #292843;
+
+/* Styling for the overall page body */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $lightest;
+  font-family: 'AR One Sans', sans-serif;
+  color: $text-color;
+}
+
+#app,
+#main {
+  width: 100%;
+}
+
+/* Styling for the navigation bar */
+nav {
+  background-color: $medium;
+  display: flex;
+  justify-content: space-around;
+  gap: 50px;
+  border: 2px solid $darkest;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px rgb(168, 168, 168);
+  padding: 10px;
+  width: 100%;
+  /* Styling for list items within the navigation bar */
+  li {
+    padding-right: 10px;
+    list-style-type: none;
+  }
+  /* Styling for list items when hovered */
+
+  a {
+    text-decoration: none;
+    color: $text-color; /* Set your desired link text color */
+  }
+  a:hover {
+    color: $darkest;
+  }
+}
+
+/* Styling for the main content section */
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Styling for buttons */
+button {
+  font-family: 'AR One Sans', sans-serif;
+  padding: 5px 5px;
+  border-radius: 5px;
+  transition: 0.3s;
+  background-color: $dark;
+  color: $lightest;
+  border: 2px solid $darkest;
+}
+/* Styling for buttons when hovered */
+button:hover {
+  background-color: $darkest;
+  color: $lightest;
+}
+
+/* Styling for the "add-card" section */
+#add-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px;
+  gap: 10px;
+  /* Styling for submit buttons within the "add-card" section */
+  .submit {
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+    background-color: $dark;
+    color: $lightest;
+    border: 2px solid $darkest;
+  }
+  /* Styling for submit buttons within the "add-card" section when hovered */
+  .submit:hover {
+    background-color: $darkest;
+    color: $lightest;
+  }
+  /* Styling for input fields within the "add-card" section */
+  textarea {
+    font-size: large;
+  }
+}
+
+/* Styling for the "add-set" section */
+#add-set {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: $light;
+  border: 2px solid $medium;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px rgb(168, 168, 168);
+  padding: 10px;
+  #set-name {
+    margin: 10px 15px;
+  }
+}
+
+/* Styling for the container of sets */
+.set-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Styling for individual sets */
+.set {
+  background-color: $light;
+  border: 2px solid $medium;
+  box-shadow: 3px 3px 3px rgb(168, 168, 168);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 50%;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  button {
+    width: 100px;
+    margin: 5px 0px;
+  }
+}
+
+/* Styling for the container of cards */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
+/* Styling for individual cards */
+.card {
+  width: 400px;
+  height: max-content;
+  background-color: $light;
+  border: 2px solid $medium;
+  box-shadow: 3px 3px 3px rgb(168, 168, 168);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 5px;
+  gap: 1px;
+  overflow-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+//styling for login/signup pages
+#login,
+#signup {
+  padding: 20px;
+  background-color: $light;
+  border: 2px solid $medium;
+  box-shadow: 3px 3px 3px rgb(168, 168, 168);
+  border-radius: 5%;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 10px;
+    min-width: 100px;
+  }
+  input {
+    font-size: 16px;
+  }
+  .submit {
+    font-family: 'AR One Sans', sans-serif;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+    background-color: $dark;
+    color: $lightest;
+    border: 2px solid $darkest;
+  }
+  .submit:hover {
+    background-color: $darkest;
+    color: $lightest;
+  }
+}
+
+//styling for view set page
+#viewSet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+//styling for Testing Set page
+#testSet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  #button-container {
+    gap: 2px;
+  }
+}
+
+//styling for the testing card
+.testing-card {
+  width: 500px;
+  height: max-content;
+  min-width: 300px;
+  min-height: 300px;
+  background-color: #fff8ed;
+  border: 2px solid rgb(0, 0, 0);
+  box-shadow: 3px 3px 3px rgb(168, 168, 168);
+  border-radius: 20px;
+  padding: 50px;
+  margin: 5px;
+  gap: 1px;
+  overflow-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  #flip {
+    margin-top: auto;
+  }
+}
