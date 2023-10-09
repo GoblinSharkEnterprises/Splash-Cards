@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CardContainer from '../containers/CardContainer.js';
 import Navbar from '../components/Navbar.js';
 
-const CreateSet = () => {
+const CreateSet = ({currentUser}) => {
   // need to use state to track form inputs
   const [setName, setSetName] = useState(''); //Set Name
   const [cardList, setCardList] = useState([]); // List of Cards
@@ -17,6 +17,7 @@ const CreateSet = () => {
     const newCardList = cardList.slice();
     newCardList.push(newCard);
     setCardList(newCardList);
+    //cardlist state to pass to card container
   };
 
   //submit post request to /api/sets to send set name and card list to server
@@ -26,6 +27,7 @@ const CreateSet = () => {
     const body = JSON.stringify({
       setName: setName,
       cardList: cardList,
+      setOwner: currentUser.userId
     });
     //do a fetch request with post method to the server passing in the body for post
     const response = await fetch('/api/sets', {
@@ -42,6 +44,7 @@ const CreateSet = () => {
       <Navbar />
       <h1>Create a New Set</h1>
       <div id='add-set'>
+        {/* save text input for set name into state onChange */}
         <input
           id='set-name'
           type='text'

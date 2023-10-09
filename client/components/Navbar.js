@@ -8,7 +8,10 @@ const Navbar = () => {
         <Link to='/'>Home</Link>
       </li>
       <li>
-        <Link to='/sets'>Sets</Link>
+        <Link to='/sets'>Public Sets</Link>
+      </li>
+      <li>
+        <Link to='/mysets'>My Sets</Link>
       </li>
       <li>
         <Link to='/createset'>Create Set</Link>
