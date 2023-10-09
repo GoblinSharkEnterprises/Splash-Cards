@@ -66,6 +66,7 @@ setsController.getSingleSet = async (req, res, next) => {
 // method for creating a new set
 setsController.addSet = async (req, res, next) => {
   try {
+    // create new set document in the db
     const createdSet = await Set.create({
       name: req.body.setName,
       public: true,
@@ -73,6 +74,7 @@ setsController.addSet = async (req, res, next) => {
       cards: res.locals.createdCards,
       setOwner: req.body.setOwner,
     });
+    // save created set into locals for next middleware
     res.locals.createdSet = createdSet;
     return next();
   } catch (err) {

@@ -112,10 +112,7 @@ usersController.getMySetIds = async (req, res, next) => {
 // method for adding a created set to user DB
 usersController.addMySet = async (req, res, next) => {
   try {
-    // update sets to include newly created set
-    // const user = await User.findOne({ _id: req.body.setOwner });
-    // const setIds = user.sets;
-    // setIds.push(res.locals.createdSet._id);
+    // update the cards array property of the logged in user with the new set
     await User.updateOne(
       { _id: req.body.setOwner },
       { $push: { sets: res.locals.createdSet._id } }
