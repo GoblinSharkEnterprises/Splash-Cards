@@ -131,3 +131,27 @@ button:hover {
   flex-direction: column;
   justify-content: center;
 }
+
+//styling for login/signup pages
+#login,
+#signup {
+  form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 10px;
+    min-width: 100px;
+  }
+  input {
+    font-size: 16px;
+  }
+  .submit {
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+  .submit:hover {
+    background-color: rgb(117, 117, 117);
+    color: white;
+  }
+}
