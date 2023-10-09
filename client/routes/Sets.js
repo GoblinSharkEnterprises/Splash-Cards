@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import SetContainer from '../containers/SetContainer.js';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar.js';
-const Sets = () => {
+
+const Sets = ({ currentUser }) => {
   const [setList, setSetList] = useState([]);
 
   //useEffect to fetch sets from db on first load
@@ -21,12 +22,12 @@ const Sets = () => {
 
   return (
     <div id='main'>
-      <Navbar />
+      <Navbar currentUser={currentUser} />
       <h1>Public Flashcard Sets</h1>
       <Link to='/createset'>
         <button>Create New Set</button>
       </Link>
-      <SetContainer setList={setList} />      
+      <SetContainer setList={setList} />
     </div>
   );
 };

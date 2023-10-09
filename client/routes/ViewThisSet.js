@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar.js';
 import { Link } from 'react-router-dom';
 
-const ViewThisSet = () => {
+const ViewThisSet = ({ currentUser }) => {
   const { id } = useParams(); //grabbing id from url to do fetch request to set
   const [currentSet, setCurrentSet] = useState([]); //set up state for set
 
@@ -20,12 +20,10 @@ const ViewThisSet = () => {
 
   return (
     <div id='viewSet'>
-      <Navbar />
-      <hr/>
-      <p>Set Name</p>
+      <Navbar currentUser={currentUser} />
       <h1>{currentSet.setName}</h1>
       <Link to={`/testSet/${id}`}>
-                <button>Test this Set</button>
+        <button>Test this Set</button>
       </Link>
       <CardContainer cardList={currentSet.cards} />
     </div>
