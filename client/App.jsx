@@ -3,6 +3,8 @@ import { Route, Routes } from 'react-router';
 import Home from './routes/Home.js';
 import Sets from './routes/Sets.js';
 import CreateSet from './routes/CreateSet.js';
+import ViewThisSet from './routes/ViewThisSet.js';
+import TestSet from './routes/TestSet.js';
 import Login from './routes/Login.js';
 import SignUp from './routes/SignUp.js';
 
@@ -19,7 +21,10 @@ const App = () => {
       <Route path='/' element={<Home />} />
       <Route path='/sets' element={<Sets />} />
       <Route path='/createset' element={<CreateSet />} />
-      <Route path='/sets/set:id' element={<Sets />} />
+      <Route path='/sets/set/:id' element={<ViewThisSet />} />
+      <Route path='/testSet' element={<TestSet />} />
+
+      {/* For Log in and sign up*/}
       <Route
         path='/login'
         element={

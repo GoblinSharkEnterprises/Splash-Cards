@@ -23,11 +23,10 @@ const Sets = () => {
     <div id='main'>
       <Navbar />
       <h1>My Flashcard Sets</h1>
-      <SetContainer setList={setList} />
-      {/* link this button to /sets/create */}
       <Link to='/createset'>
         <button>Create New Set</button>
       </Link>
+      <SetContainer setList={setList} />      
     </div>
   );
 };

@@ -155,3 +155,10 @@ button:hover {
     color: white;
   }
 }
+
+//styling for view set
+#viewSet{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
