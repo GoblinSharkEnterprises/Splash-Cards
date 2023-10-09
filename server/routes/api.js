@@ -4,8 +4,19 @@ const router = express.Router();
 // require in controllers
 const setsController = require("../controllers/setsController");
 const cardsController = require("../controllers/cardsController");
+const usersController = require("../controllers/usersController");
 
 // define routes
+
+// route for signing up
+router.post("/signup", usersController.createUser, (req, res) => {
+  return res.status(200).json({ userId: res.locals.userId });
+});
+
+// route for logging in
+router.post("/login", usersController.verifyUser, (req, res) => {
+  return res.status(200).json({ userId: res.locals.userId });
+});
 
 // route for getting a single set and returning all set/card information
 router.get(

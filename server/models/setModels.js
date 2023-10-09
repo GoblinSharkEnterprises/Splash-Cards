@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const MONGO_URI =
-  'mongodb+srv://gbyrne12:X9pFiXUCeF2cortx@scratch.dqmncpw.mongodb.net/?retryWrites=true&w=majority';
+  "mongodb+srv://gbyrne12:X9pFiXUCeF2cortx@scratch.dqmncpw.mongodb.net/?retryWrites=true&w=majority";
 //make sure to create your own URI for this mongodb to work
 mongoose
   .connect(MONGO_URI, {
@@ -9,10 +9,10 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
     // sets the name of the DB that out collections are part of
-    dbname: 'scratch',
+    dbname: "scratch",
   })
-  .then(() => console.log('Connected to Mongo DB.'))
-  .catch((err) => console.log('Error connecting to db: ', err));
+  .then(() => console.log("Connected to Mongo DB."))
+  .catch((err) => console.log("Error connecting to db: ", err));
 
 const Schema = mongoose.Schema;
 
@@ -24,13 +24,14 @@ const setSchema = new Schema({
   cards: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'card',
+      ref: "card",
     },
   ],
+  owner: { type: Schema.Types.ObjectId, ref: "user" },
 });
 
 // creates a model for the 'set' collection that will be part of the export
-const Set = mongoose.model('set', setSchema);
+const Set = mongoose.model("set", setSchema);
 
 const cardSchema = new Schema({
   front: String,
@@ -39,7 +40,7 @@ const cardSchema = new Schema({
 });
 
 // creates a model for the 'card' collection that will be part of the export
-const Card = mongoose.model('card', cardSchema);
+const Card = mongoose.model("card", cardSchema);
 
 // exports all the models in an object to be used in the server controller
 module.exports = {
