@@ -92,4 +92,42 @@ usersController.verifyUser = async (req, res, next) => {
   }
 };
 
+usersController.getMySetIds = async (req, res, next) => {
+  try {
+    // get user obj from DB
+    const user = await User.findOne({ _id: req.params.id });
+    // store array of set ids on res.locals
+    res.locals.setIds = user.sets;
+    return next();
+  } catch (err) {
+    // pass error through to global error handler
+    return next({
+      log: `usersController.getMySets ERROR: ${err}`,
+      status: 500,
+      message: { err: "Error getting users setIds" },
+    });
+  }
+};
+
+// method for adding a created set to user DB
+usersController.addMySet = async (req, res, next) => {
+  try {
+    // update sets to include newly created set
+    const user = await User.findOne({ _id: req.body.setOwner });
+    const setIds = user.sets;
+    setIds.push(res.locals.createdSet._id);
+    await User.updateOne(
+      { _id: req.body.setOwner },
+      { $set: { sets: setIds } }
+    );
+  } catch (err) {
+    // pass error through to global error handler
+    return next({
+      log: `usersController.addMySet ERROR: ${err}`,
+      status: 500,
+      message: { err: "Error adding a new set to user DB" },
+    });
+  }
+};
+
 module.exports = usersController;

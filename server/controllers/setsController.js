@@ -66,12 +66,14 @@ setsController.getSingleSet = async (req, res, next) => {
 // method for creating a new set
 setsController.addSet = async (req, res, next) => {
   try {
-    await Set.create({
+    const createdSet = await Set.create({
       name: req.body.setName,
       public: true,
       totalCards: res.locals.createdCards.length,
       cards: res.locals.createdCards,
+      setOwner: req.body.setOwner,
     });
+    res.locals.createdSet = createdSet;
     return next();
   } catch (err) {
     // pass error through to global error handler
@@ -79,6 +81,27 @@ setsController.addSet = async (req, res, next) => {
       log: `setsController.addSet ERROR: ${err}`,
       status: 500,
       message: { err: "Error adding a set" },
+    });
+  }
+};
+
+setsController.getMySets = async (req, res, next) => {
+  try {
+    // for every setId, find it and append it to sets array
+    const sets = [];
+    for (let setId of res.locals.setIds) {
+      const set = await Set.findOne({ _id: setId });
+      sets.push(set);
+    }
+    // add sets to res.locals
+    res.locals.sets = sets;
+    return next();
+  } catch (err) {
+    // pass error through to global error handler
+    return next({
+      log: `setsController.getMySets ERROR: ${err}`,
+      status: 500,
+      message: { err: "Error getting users sets" },
     });
   }
 };

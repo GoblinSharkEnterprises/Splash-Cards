@@ -27,7 +27,7 @@ const setSchema = new Schema({
       ref: "card",
     },
   ],
-  owner: { type: Schema.Types.ObjectId, ref: "user" },
+  setOwner: { type: Schema.Types.ObjectId, ref: "user" },
 });
 
 // creates a model for the 'set' collection that will be part of the export

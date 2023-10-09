@@ -28,6 +28,17 @@ router.get(
   }
 );
 
+// route for getting sets belonging to the logged in user
+router.get(
+  "/sets/user:id",
+  usersController.getMySetIds,
+  setsController.getMySets,
+  setsController.refineSets,
+  (req, res) => {
+    return res.status(200).json(res.locals.refinedSets);
+  }
+);
+
 // route for getting refined information about sets for main display
 router.get(
   "/sets",
