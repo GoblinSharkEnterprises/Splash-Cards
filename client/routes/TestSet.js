@@ -1,11 +1,10 @@
 import React from 'react';
 import Navbar from '../components/Navbar.js';
 
-const TestSet = () => {
-  
+const TestSet = ({ currentUser }) => {
   return (
     <div id='testSet'>
-      <Navbar />
+      <Navbar currentUser={currentUser} />
       <h1>Testing Set Page</h1>
     </div>
   );

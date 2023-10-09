@@ -20,12 +20,12 @@ const ViewThisSet = () => {
 
   return (
     <div id='viewSet'>
-      <Navbar />
-      <hr/>
+      <Navbar currentUser={currentUser} />
+      <hr />
       <p>Set Name</p>
       <h1>{currentSet.setName}</h1>
       <Link to={`/testSet/${id}`}>
-                <button>Test this Set</button>
+        <button>Test this Set</button>
       </Link>
       <CardContainer cardList={currentSet.cards} />
     </div>

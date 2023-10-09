@@ -23,7 +23,6 @@ const Login = ({ currentUser, setCurrentUser }) => {
     const user = await response.json();
     if (response.status === 200) {
       setCurrentUser(user);
-      console.log('current user', currentUser);
     }
   };
 
@@ -32,7 +31,7 @@ const Login = ({ currentUser, setCurrentUser }) => {
   } else {
     return (
       <div id='main'>
-        <Navbar />
+        <Navbar currentUser={currentUser} />
         <div id='login'>
           <form onSubmit={handleLogin}>
             <input name='username' type='text' placeholder='Username'></input>
