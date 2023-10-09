@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import Navbar from '../components/Navbar.js';
 
 const Login = ({ currentUser, setCurrentUser }) => {
@@ -22,21 +23,30 @@ const Login = ({ currentUser, setCurrentUser }) => {
     const user = await response.json();
     if (response.status === 200) {
       setCurrentUser(user);
+      console.log('current user', currentUser);
     }
   };
 
-  return (
-    <div id='main'>
-      <Navbar />
-      <div id='login'>
-        <form onSubmit={handleLogin}>
-          <input name='username' type='text' placeholder='Username'></input>
-          <input name='password' type='password' placeholder='Password'></input>
-          <input className='submit' type='submit' value='Login'></input>
-        </form>
+  if (currentUser.hasOwnProperty('userId')) {
+    return <Navigate replace to='/mysets' />;
+  } else {
+    return (
+      <div id='main'>
+        <Navbar />
+        <div id='login'>
+          <form onSubmit={handleLogin}>
+            <input name='username' type='text' placeholder='Username'></input>
+            <input
+              name='password'
+              type='password'
+              placeholder='Password'
+            ></input>
+            <input className='submit' type='submit' value='Login'></input>
+          </form>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default Login;
