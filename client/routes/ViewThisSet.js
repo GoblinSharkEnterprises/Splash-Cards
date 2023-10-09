@@ -2,17 +2,18 @@ import React, { useEffect, useState } from 'react';
 import CardContainer from '../containers/CardContainer.js';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar.js';
+import { Link } from 'react-router-dom';
 
 const ViewThisSet = () => {
   const { id } = useParams(); //grabbing id from url to do fetch request to set
-  const [cardList, setCardList] = useState([]); //set up state for set
+  const [currentSet, setCurrentSet] = useState([]); //set up state for set
 
   // Use effect to fetch set and grab card from fetch id
   useEffect(() => {
     const fetchCards = async () => {
       const response = await fetch(`/api/sets/set${id}`);
-      const list = await response.json();
-      setCardList(list);
+      const set = await response.json();
+      setCurrentSet(set);
     };
     fetchCards().catch(console.error);
   }, []);
@@ -20,10 +21,12 @@ const ViewThisSet = () => {
   return (
     <div id='viewSet'>
       <Navbar />
-      <CardContainer cardList={cardList} />
-      {/* <Link to='/testSet'>
+      <hr/>
+      <h1>{currentSet.setName}</h1>
+      <Link to='/testSet'>
                 <button>Test this Set</button>
-            </Link> */}
+      </Link>
+      <CardContainer cardList={currentSet.cards} />
     </div>
   );
 };
