@@ -12,6 +12,7 @@ nav {
   background-color: rgb(192, 242, 241);
   display: flex;
   justify-content: space-around;
+  gap: 50px;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 5px;
   box-shadow: 3px 3px 3px rgb(168, 168, 168);
@@ -82,8 +83,9 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: lightblue;
+  background-color: rgb(192, 242, 241);
   border: 2px solid rgb(0, 0, 0);
+  border-radius: 5px;
   box-shadow: 3px 3px 3px rgb(168, 168, 168);
   padding: 10px;
   gap: 20px;
@@ -118,7 +120,7 @@ button:hover {
 
 /* Styling for individual cards */
 .card {
-  width: 200px;
+  width: 400px;
   height: max-content;
   background-color: #fff8ed;
   border: 2px solid rgb(0, 0, 0);
@@ -126,7 +128,7 @@ button:hover {
   border-radius: 20px;
   padding: 20px;
   margin: 5px;
-  gap:1px;
+  gap: 1px;
   overflow-wrap: break-word;
   display: flex;
   flex-direction: column;
@@ -157,9 +159,41 @@ button:hover {
   }
 }
 
-//styling for view set
-#viewSet{
+//styling for view set page
+#viewSet {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+//styling for Testing Set page
+#testSet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  #button-container {
+    gap: 2px;
+  }
+}
+
+//styling for the testing card
+.testing-card {
+  width: 500px;
+  height: max-content;
+  min-width: 300px;
+  min-height: 300px;
+  background-color: #fff8ed;
+  border: 2px solid rgb(0, 0, 0);
+  box-shadow: 3px 3px 3px rgb(168, 168, 168);
+  border-radius: 20px;
+  padding: 50px;
+  margin: 5px;
+  gap: 1px;
+  overflow-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  #flip {
+    margin-top: auto;
+  }
 }
