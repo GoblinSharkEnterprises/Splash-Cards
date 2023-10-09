@@ -3,8 +3,6 @@ import Navbar from '../components/Navbar.js';
 
 const Login = ({ currentUser, setCurrentUser }) => {
   //event handler on form submit
-  //send post request to '/login' with body {username:, password:}
-  //save result into currentUser state for later use... stretch features?
   const handleLogin = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -12,13 +10,15 @@ const Login = ({ currentUser, setCurrentUser }) => {
       username: form[0].value,
       password: form[1].value,
     });
-    const response = await fetch('/login', {
+    //send post request to '/api/login' with body {username:, password:}
+    const response = await fetch('/api/login', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
       body: body,
     });
+    //save result into currentUser state for later use... stretch features?
     const user = await response.json();
     if (response.status === 200) {
       setCurrentUser(user);
