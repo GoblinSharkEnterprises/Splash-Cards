@@ -22,8 +22,9 @@ const ViewThisSet = () => {
     <div id='viewSet'>
       <Navbar />
       <hr/>
+      <p>Set Name</p>
       <h1>{currentSet.setName}</h1>
-      <Link to='/testSet'>
+      <Link to={`/testSet/${id}`}>
                 <button>Test this Set</button>
       </Link>
       <CardContainer cardList={currentSet.cards} />

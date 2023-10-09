@@ -47,6 +47,7 @@ const Login = ({ currentUser, setCurrentUser }) => {
       </div>
     );
   }
+  //}
 };
 
 export default Login;
