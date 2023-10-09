@@ -1,22 +1,37 @@
+//colors
+$lightest: #f4f6fa;
+$light: #d1d6ec;
+$medium: #8c9ace;
+$dark: #5e63b2;
+$darkest: #4f4e92;
+$text-color: #292843;
+
 /* Styling for the overall page body */
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: beige;
+  background-color: $lightest;
   font-family: 'AR One Sans', sans-serif;
+  color: $text-color;
+}
+
+#app,
+#main {
+  width: 100%;
 }
 
 /* Styling for the navigation bar */
 nav {
-  background-color: rgb(192, 242, 241);
+  background-color: $medium;
   display: flex;
   justify-content: space-around;
   gap: 50px;
-  border: 2px solid rgb(0, 0, 0);
+  border: 2px solid $darkest;
   border-radius: 5px;
   box-shadow: 3px 3px 3px rgb(168, 168, 168);
   padding: 10px;
+  width: 100%;
   /* Styling for list items within the navigation bar */
   li {
     padding-right: 10px;
@@ -26,10 +41,10 @@ nav {
 
   a {
     text-decoration: none;
-    color: rgb(30, 29, 29); /* Set your desired link text color */
+    color: $text-color; /* Set your desired link text color */
   }
   a:hover {
-    color: rgb(136, 136, 136);
+    color: $darkest;
   }
 }
 
@@ -43,14 +58,18 @@ nav {
 
 /* Styling for buttons */
 button {
+  font-family: 'AR One Sans', sans-serif;
   padding: 5px 5px;
   border-radius: 5px;
   transition: 0.3s;
+  background-color: $dark;
+  color: $lightest;
+  border: 2px solid $darkest;
 }
 /* Styling for buttons when hovered */
 button:hover {
-  background-color: rgb(117, 117, 117);
-  color: white;
+  background-color: $darkest;
+  color: $lightest;
 }
 
 /* Styling for the "add-card" section */
@@ -65,16 +84,18 @@ button:hover {
     padding: 5px 10px;
     border-radius: 5px;
     transition: 0.3s;
+    background-color: $dark;
+    color: $lightest;
+    border: 2px solid $darkest;
   }
   /* Styling for submit buttons within the "add-card" section when hovered */
   .submit:hover {
-    background-color: rgb(117, 117, 117);
-    color: white;
+    background-color: $darkest;
+    color: $lightest;
   }
   /* Styling for input fields within the "add-card" section */
-  input {
-    padding: 20px;
-    font-size: 16px;
+  textarea {
+    font-size: large;
   }
 }
 
@@ -83,12 +104,14 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: rgb(192, 242, 241);
-  border: 2px solid rgb(0, 0, 0);
+  background-color: $light;
+  border: 2px solid $medium;
   border-radius: 5px;
   box-shadow: 3px 3px 3px rgb(168, 168, 168);
   padding: 10px;
-  gap: 20px;
+  #set-name {
+    margin: 10px 15px;
+  }
 }
 
 /* Styling for the container of sets */
@@ -101,13 +124,20 @@ button:hover {
 
 /* Styling for individual sets */
 .set {
-  background-color: #fed28f;
-  border: 2px solid rgb(0, 0, 0);
+  background-color: $light;
+  border: 2px solid $medium;
   box-shadow: 3px 3px 3px rgb(168, 168, 168);
   border-radius: 20px;
   padding: 40px;
-  max-width: 100px;
+  max-width: 50%;
   margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  button {
+    width: 100px;
+    margin: 5px 0px;
+  }
 }
 
 /* Styling for the container of cards */
@@ -122,8 +152,8 @@ button:hover {
 .card {
   width: 400px;
   height: max-content;
-  background-color: #fff8ed;
-  border: 2px solid rgb(0, 0, 0);
+  background-color: $light;
+  border: 2px solid $medium;
   box-shadow: 3px 3px 3px rgb(168, 168, 168);
   border-radius: 20px;
   padding: 20px;
@@ -138,6 +168,11 @@ button:hover {
 //styling for login/signup pages
 #login,
 #signup {
+  padding: 20px;
+  background-color: $light;
+  border: 2px solid $medium;
+  box-shadow: 3px 3px 3px rgb(168, 168, 168);
+  border-radius: 5%;
   form {
     display: flex;
     flex-direction: column;
@@ -149,13 +184,17 @@ button:hover {
     font-size: 16px;
   }
   .submit {
+    font-family: 'AR One Sans', sans-serif;
     padding: 5px 10px;
     border-radius: 5px;
     transition: 0.3s;
+    background-color: $dark;
+    color: $lightest;
+    border: 2px solid $darkest;
   }
   .submit:hover {
-    background-color: rgb(117, 117, 117);
-    color: white;
+    background-color: $darkest;
+    color: $lightest;
   }
 }
 
@@ -164,6 +203,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
 }
 //styling for Testing Set page
 #testSet {

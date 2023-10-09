@@ -26,18 +26,27 @@ const Login = ({ currentUser, setCurrentUser }) => {
     }
   };
 
+  if (currentUser.hasOwnProperty('userId')) {
+    return <Navigate replace to='/mysets' />;
+  } else {
     return (
       <div id='main'>
-        <Navbar />
+        <Navbar currentUser={currentUser} />
+        <h1>Login</h1>
         <div id='login'>
           <form onSubmit={handleLogin}>
             <input name='username' type='text' placeholder='Username'></input>
-            <input name='password' type='password' placeholder='Password'></input>
+            <input
+              name='password'
+              type='password'
+              placeholder='Password'
+            ></input>
             <input className='submit' type='submit' value='Login'></input>
           </form>
         </div>
       </div>
     );
+  }
   //}
 };
 
