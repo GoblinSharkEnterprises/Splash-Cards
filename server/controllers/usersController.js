@@ -64,7 +64,7 @@ usersController.verifyUser = async (req, res, next) => {
         if (!result) {
           // password did not match
           return next({
-            log: "Invalid password in usersController.varifyUser",
+            log: "Invalid password in usersController.verifyUser",
             status: 401,
             message: { err: "Invalid username or password" },
           });

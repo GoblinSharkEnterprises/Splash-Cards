@@ -11,7 +11,7 @@ const Home = () => {
       <p>We're a flashcard app that is totally not Quizlet</p>
       {/* link this button to /sets */}
       <Link to='/sets'>
-        <button>View Sets</button>
+        <button>View Public Sets</button>
       </Link>
     </div>
   );
