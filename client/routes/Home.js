@@ -6,13 +6,13 @@ import Navbar from '../components/Navbar.js';
 const Home = ({ currentUser }) => {
   return (
     <div id='main'>
-      <Navbar currentUser={currentUser} />
-      <h1>Not Quizlet</h1>
-      <p>We're a flashcard app that is totally not Quizlet</p>
-      {/* link this button to /sets */}
-      <Link to='/sets'>
-        <button>View Public Sets</button>
-      </Link>
+      <Navbar currentUser={ currentUser } />
+        <h1>Splash Cards</h1>
+        <h3>Keep your memory shark</h3>
+        {/* link this button to /sets */}
+        <Link to='/sets'>
+          <button>View Public Sets</button>
+        </Link>
     </div>
   );
 };
