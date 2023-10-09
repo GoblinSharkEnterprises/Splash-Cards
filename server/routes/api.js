@@ -54,6 +54,7 @@ router.post(
   "/sets",
   cardsController.addCards,
   setsController.addSet,
+  usersController.addMySet,
   (req, res) => {
     res.status(200).json({});
   }

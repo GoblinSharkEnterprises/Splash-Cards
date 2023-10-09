@@ -113,13 +113,14 @@ usersController.getMySetIds = async (req, res, next) => {
 usersController.addMySet = async (req, res, next) => {
   try {
     // update sets to include newly created set
-    const user = await User.findOne({ _id: req.body.setOwner });
-    const setIds = user.sets;
-    setIds.push(res.locals.createdSet._id);
+    // const user = await User.findOne({ _id: req.body.setOwner });
+    // const setIds = user.sets;
+    // setIds.push(res.locals.createdSet._id);
     await User.updateOne(
       { _id: req.body.setOwner },
-      { $set: { sets: setIds } }
+      { $push: { sets: res.locals.createdSet._id } }
     );
+    return next();
   } catch (err) {
     // pass error through to global error handler
     return next({
