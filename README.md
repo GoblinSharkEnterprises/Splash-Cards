@@ -6,6 +6,9 @@ Project Frame
 Made by Nam, Garrett, Sonya, John
 
 To use the app
+
 step 1. Clone repo to code editor
+
 step 2. run npm install to install all dependencies
+
 step 3. start project with npm run dev (for dev mode)
