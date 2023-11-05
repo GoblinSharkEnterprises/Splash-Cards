@@ -54,17 +54,19 @@ In the future, we plan to introduce the following enhancements:
 - **Express**
 - **MongoDB**
 
-**Project Frame**
+## Project Frame
 ![Excalidraw](https://github.com/GoblinSharkEnterprises/Scratch-Project/assets/77031991/a5967afc-50a0-4cfe-9f06-e130cbd23d33)
 
 
-# To use the app
+## To use the app
 
  **Step 1**. Clone repo to code editor
 
  **Step 2**. run npm install to install all dependencies
 
  **Step 3**. start the project with **npm start** or **npm run dev** (for dev mode)
+
+
 
 
 #### Made by Nam, Garrett, Sonya, John
