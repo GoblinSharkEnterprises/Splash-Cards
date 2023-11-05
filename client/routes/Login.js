@@ -1,6 +1,7 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar.js';
+import styles from '../scss/app.scss';
 
 const Login = ({ currentUser, setCurrentUser }) => {
   //event handler on form submit
@@ -43,6 +44,13 @@ const Login = ({ currentUser, setCurrentUser }) => {
             ></input>
             <input className='submit' type='submit' value='Login'></input>
           </form>
+          <p
+            style={{
+              fontSize: 'smaller',
+            }}
+          >
+            Don't have an account? <Link to='/signup'>Create account</Link>{' '}
+          </p>
         </div>
       </div>
     );

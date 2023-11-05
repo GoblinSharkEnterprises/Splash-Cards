@@ -16,12 +16,36 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: $lightest;
+  background-color: $light;
   font-family: 'AR One Sans', sans-serif;
   color: $text-color;
+  background-image: url('./background.jpeg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh; // Ensure the body takes up at least the full height of the viewport
+  margin: 0; // Remove default margin
 }
 
-#app,
+#app {
+  flex: 1; // Make the content fill the available vertical space
+}
+
+footer {
+  padding: 10px; // Adjust padding as needed
+  text-align: center; // Center-align the content in the footer
+  font-size: smaller;
+  color: black;
+}
+
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  height: 100vh;
+}
+
 #main {
   display: flex;
   flex-direction: column;
@@ -29,12 +53,7 @@ body {
   gap: 20px;
   width: 100%;
   height: 100vh;
-  background-image: url('./background.jpeg'); /* Set the background image */
-  background-size: cover;
-  background-position: center; 
 }
-
-//background image on home page
 
 /* Styling for the navigation bar */
 nav {
@@ -158,19 +177,34 @@ button:hover {
 
 /* Styling for individual cards */
 .card {
-  width: 400px;
-  height: max-content;
-  background-color: $light;
-  border: 2px solid $medium;
+  width: auto;
+  height: auto; /* Using 'auto' to adjust the height based on content */
+  background-color: $lightest;
+  border: 2px solid $darkest;
   box-shadow: 3px 3px 3px rgb(168, 168, 168);
   border-radius: 20px;
   padding: 20px;
   margin: 5px;
   gap: 1px;
-  overflow-wrap: break-word;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+
+  .card-content {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .card-side {
+    flex: 1;
+    padding: 10px;
+  }
+
+  .card-divider {
+    width: 2px;
+    background-color: $medium; /* Color for the vertical line */
+    height: 100%; /* Set the height to 100% to make it a line */
+    margin: 0 10px; /* Adjust the margin to control the spacing around the divider */
+  }
 }
 
 //styling for login/signup pages
@@ -178,7 +212,7 @@ button:hover {
 #signup {
   padding: 20px;
   background-color: $light;
-  border: 2px solid $medium;
+  border: 2px solid $dark;
   box-shadow: 3px 3px 3px rgb(168, 168, 168);
   border-radius: 5%;
   form {
@@ -204,6 +238,13 @@ button:hover {
     background-color: $darkest;
     color: $lightest;
   }
+  a {
+    text-decoration: none;
+    color: $darkest; /* Set your desired link text color */
+  }
+  a:hover {
+    color: $lightest;
+  }
 }
 
 //styling for view set page
@@ -218,6 +259,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   #button-container {
     margin: 10px;
     display: flex;
@@ -236,7 +278,7 @@ button:hover {
   height: max-content;
   min-width: 300px;
   min-height: 300px;
-  background-color: $light;
+  background-color: $lightest;
   border: 2px solid rgb(0, 0, 0);
   box-shadow: 3px 3px 3px rgb(168, 168, 168);
   border-radius: 20px;
