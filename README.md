@@ -1,7 +1,4 @@
-# Scratch-Project
-
-
-## FlashCard
+# Flash Cards
 
 FlashCard is a web app designed to simplify the learning process through flashcards. It helps students and learners of all levels improve their study habits by providing an easy-to-use platform for creating, managing, and sharing flashcards. Whether you prefer to study privately or collaborate with others, FlashCard has you covered.
 
