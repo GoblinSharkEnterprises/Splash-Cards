@@ -23,7 +23,7 @@ const ViewThisSet = ({ currentUser }) => {
       <Navbar currentUser={currentUser} />
       <h1>{currentSet.setName}</h1>
       <Link to={`/testSet/${id}`}>
-        <button>Test this Set</button>
+        <button>Learn this Set</button>
       </Link>
       <CardContainer cardList={currentSet.cards} />
     </div>
