@@ -30,13 +30,14 @@ body {
   flex: 1; // Make the content fill the available vertical space
 }
 
-footer {
-  padding: 10px; // Adjust padding as needed
-  text-align: center; // Center-align the content in the footer
-  font-size: smaller;
-  color: black;
-}
-
+// footer {
+//   padding: 10px; // Adjust padding as needed
+//   text-align: center; // Center-align the content in the footer
+//   font-size: smaller;
+//   color: black;
+//   margin: auto;
+//   background-color: #1f2d4c;
+// }
 
 #app {
   display: flex;

@@ -7,6 +7,7 @@ import TestingCard from '../components/TestingCard.js';
 const TestSet = (props) => {
   const { id } = useParams();
   const [testingSet, setTestingSet] = useState([]); //set up state for set
+  const [currentSetName, setCurrentSetName] = useState(''); //set up state for set name
   const [testingCard, setTestingCard] = useState({}); //set up state for the current card
   const [cardIdx, setCardIdx] = useState(0); //set up state for the current card index
   const [cardDisplay, setCardDisplay] = useState('front'); //set up state for showing fron or back
@@ -16,6 +17,7 @@ const TestSet = (props) => {
       const response = await fetch(`/api/sets/set${id}`);
       const set = await response.json();
       setTestingSet(set.cards);
+      setCurrentSetName(set.setName);
       setTestingCard(set.cards[cardIdx]);
     };
     fetchCards().catch(console.error);
@@ -46,23 +48,22 @@ const TestSet = (props) => {
 
   return (
     <div id='testSet'>
-      <Navbar currentUser={props.currentUser}/>
-      <h1>Testing Set</h1>
-      <p>Current Card: {cardIdx + 1}</p>
+      <Navbar currentUser={props.currentUser} />
+      <h2>{currentSetName}</h2>
       <TestingCard
         testingCard={testingCard}
         cardDisplay={cardDisplay}
         setCardDisplay={setCardDisplay}
       />
       <br></br>
+      <p>Current Card: {cardIdx + 1}</p>
       <div id='button-container'>
         <button onClick={cardIndexChanger} value='back'>
-        Back
+          Back
         </button>
         <button onClick={cardIndexChanger} value='next'>
           Next
         </button>
-        
       </div>
     </div>
   );
